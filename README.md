@@ -1,5 +1,4 @@
 # T11D17
-The russian version of the task can be found in the repository.
 
 You can find some useful video materials in the "Projects (Media)" section on the Platform.
 
