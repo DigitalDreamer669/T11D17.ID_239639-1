@@ -145,7 +145,7 @@ Aminmisan? Bu shahsiy bo’lishi mumkin...
 
 Sendan ancha avval kimdir tashlab ketgan eslatmaga o‘xshaydi. Eshikni boshqarish moduliga eʼtibor berish arziydi, bu yordam berishi mumkin.
 
-***== Quest 1 qabul qilindi. src/door_struct.h* *da eshiklar strukturasi yaratish. Strukturaning o‘zi butunsonli eshik  id va butunsonli status dan iborat (0 - yopiq, 1 - ochiq).  src/dmanager_module.c dasturini to‘g‘irilash, u qiymatlangan eshiklar massivini eshiklar id  har qanday algoritm bilan o’sish tartibda ajratsin va shu formatda chiqarsin: «eshik id, eshik statusi». Bundan tashqari, barcha eshiklar uchun «yopiq» statusi qayd etilsin. Eshiklarni initsializatsiyalash funksiyasi o‘zgartirilmasin. Struktur yondashuv qo‘llansin. Dartur Makefile yordamida tuzilsin. Bosqich nomi - door_struct. Bajarilgan fayl ombor ildizida build papkasida joylashsin va nomi  Quest_1 bo‘lsin. Qaror kod uslub normasi va xotira sarfi uchun tekshiriladi, ko'rsatmalar ham `materials` papkasida ==***
+***== Quest 1 qabul qilindi. src/door_struct.h ichida eshiklarning tuzilmasini yaratish. Tuzilma id (butun son) va status(butun son, 0 - yopiq, 1 - ochiq) maydonlaridan iborat bo‘lishi kerak. src/dmanager_module.c dasturini shunday o‘zgartirish kerakki, u initsializatsiya qilingan eshiklar massivini har qanday algoritm yordamida id bo‘yicha o‘sish tartibida saralasin va natijani quyidagi formatda chiqarib bersin: «eshik id’si, eshik statusi». Bundan tashqari, barcha eshiklarning statusini «yopiq» qilib o‘zgartirish lozim. Eshiklarni initsializatsiya qilish funksiyasini o‘zgartirish mumkin emas. Strukturaviy yondashuvga rioya qilish kerak. Dastur Makefile yordamida yig‘ilishi lozim. Yig‘ish bosqichi nomi – door_struct. Ishga tushirish fayli build papkasida Quest_1 nomi bilan saqlanishi kerak. Yechim xotira sizib chiqishlariga va stil me’yorlariga tekshiriladi. Ko‘rsatmalar har doimgidek `materials` bo‘limida. ==***
 
 0, 0<br/>
 1, 0<br/>
@@ -180,7 +180,15 @@ Mana davomi.
 
 В одном из листов что-то говорилось про односвязный список. Стоит узнать побольше про этот список и заодно разобраться с выделением памяти под него.
 
-***== Quest 2 qabul qilindi. src/list.c dasturi yaratilsin, ichida eshiklarning birbog‘lanishli ro‘yxati bo‘yicha funksiyalar mavjud (`struct node* init(struct door* door` - o‘tkazilgan baza asosida birbog‘lanishli ro‘yxat strukturasining initsializatsiyasi `struct door`, `struct node* add_door(struct node* elem, struct door* door)` -  o‘tkazilgan bog‘lamadan keyin birbog‘lanishli ro‘yxatga `struct door` yangi elementini `elem`, `struct node* find_door(int door_id, struct node* root` ga qo‘shish - ro‘yxatda id bo‘yicha eshik izlash, `struct node* remove_door(struct node* elem, struct node* root)` - ro‘yxat elementini o‘chirish, `void destroy(struct node* root)` - ro‘yxat egallagan xotirani bo‘shatish). Bu funksiyalarning eʼlonlarini va birbog‘lanishli ro‘yxat strukturasi src/list.h ga chiqarilsin. add_door va remove_door funksiyalarining src/listtest.c da ishlashini tekshirish uchun modul testlar yozilsin. Test yaxshi o‘tsa usullar funksiyalari SUCCESS ni va xato bo‘lganda - FAIL niqaytarsin. Testlar Makefile yordamida tuzilsin. Bosqich nomi - list_test. Bajarilgan fayl ombor ildizida build papkasida joylashsin va nomi Quest_2 bo‘lsin. Eʼtibor ber: bu kvest `cppcheck` utilitasi bilan testlanadi  ==***
+***== Quest 2 qabul qilindi. src/list.c dasturini ishlab chiqish, unda eshiklar uchun bir bog‘langan ro‘yxat (linked list) bilan ishlash funksiyalari amalga oshiriladi: \
+`struct node* init(struct door* door)` – uzatilgan `struct door` asosida bir bog‘langan ro‘yxatni initsializatsiya qilish. \
+`struct node* add_door(struct node* elem, struct door* door)` – `struct door` elementini elem tugunidan keyin ro‘yxatga qo‘shish. \
+`struct node* find_door(int door_id, struct node* root)` – door_id bo‘yicha eshikni ro‘yxatdan izlash. \
+`struct node* remove_door(struct node* elem, struct node* root)` – ro‘yxatdan elem elementini o‘chirish. \
+`void destroy(struct node* root)` – ro‘yxat egallagan xotirani bo‘shatish. \
+Bu funksiyalar va bir bog‘langan ro‘yxatning tuzilmasi src/list.h fayliga joylashtirilishi kerak. src/list_test.c ichida add_door va remove_door funksiyalarini tekshirish uchun modul testlar yozish. Metod funksiyalari test muvaffaqiyatli bo‘lsa SUCCESS, xato bo‘lsa FAIL qiymatini qaytarishi kerak. Testlar Makefile orqali yig‘ilishi kerak. Yig‘ish bosqichi nomi – list_test. Ishga tushirish fayli build papkasida Quest_2 nomi bilan saqlanishi kerak. Diqqat: ushbu kvest `cppcheck` utilitasi bilan test qilinadi. ==***
+
+
 
 
 
