@@ -153,7 +153,10 @@ door initialization function is not allowed. Stick to the structured approach.
 The program should be built using a Makefile. Stage name: door_struct. The 
 executable file should be located in the build folder at the root of the 
 repository. It should be named Quest_1. The solution will be checked for memory 
-leaks and for the style norm, instructions as usual-in `materials` ==***
+leaks and for the style norm, instructions as usual-in `materials`. 
+It is forbidden to make system calls using the system() function and other similar 
+functions that can access the system kernel directly. 
+This prohibition applies to all subsequent quests ==***
 
 0, 0<br/>
 1, 0<br/>
